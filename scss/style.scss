@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+
+@import 'normalize';
+@import 'mixin';
+// @import 'float-grid';
+@import 'flex-grid';
+
+@font-face {
+   font-family: 'bebas_neuethin';
+   src: url('../fonts/bebas/bebasneue_thin-webfont.eot');
+   src: url('../fonts/bebas/bebasneue_thin-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bebas/bebasneue_thin-webfont.woff2') format('woff2'),
+        url('../fonts/bebas/bebasneue_thin-webfont.woff') format('woff'),
+        url('../fonts/bebas/bebasneue_thin-webfont.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}@font-face {
+   font-family: 'bebas_neue_regular';
+   src: url('../fonts/bebas/bebasneue_regular-webfont.eot');
+   src: url('../fonts/bebas/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bebas/bebasneue_regular-webfont.woff2') format('woff2'),
+        url('../fonts/bebas/bebasneue_regular-webfont.woff') format('woff'),
+        url('../fonts/bebas/bebasneue_regular-webfont.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}@font-face {
+   font-family: 'bebas_neuebold';
+   src: url('../fonts/bebas/bebasneue_bold-webfont.eot');
+   src: url('../fonts/bebas/bebasneue_bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/bebas/bebasneue_bold-webfont.woff2') format('woff2'),
+        url('../fonts/bebas/bebasneue_bold-webfont.woff') format('woff'),
+        url('../fonts/bebas/bebasneue_bold-webfont.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+
+$text:#181818;
+$body-bg:#9789f9;
+$card-bg:#fff;
+$offset:30px;
+$blue:#6fcffb;
+$red:#fd8d7b;
+
+* {
+	box-sizing: border-box;
+}
+
+
+html {
+	font: 10px/1.6 Roboto, sans-serif;
+	height: 100%;
+}
+
+body {
+     font-size: 1.6rem;
+     font-weight: 300;
+     color: #333;
+     min-height: 100%;
+     background-color: $body-bg;
+}
+
+.cards {
+	max-width: 1100px;
+	width: 96%;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card {
+	text-align: center;
+	background-color: $card-bg;
+	padding: $offset;
+	width: 30%;
+	&__head{}
+	&__body{
+		padding: $offset 0;
+		margin: $offset -1 * $offset;
+		background-color: #fff;
+	}
+	&__foot{
+		position: relative;
+	}
+	&__icon{
+		display: block;
+		margin: 0 auto;
+	}
+	&__price{
+		font-size: 6rem;
+		font-family:bebas_neuethin, Roboto, sans-serif ;
+		line-height: 1;
+		max-width: 90%;
+		margin: 0 auto;
+		@include ellipsis ();
+		position: relative;
+		display: inline-block;
+		padding: 0 .3em 0 .2em;
+		&:before {
+			content:'$';
+			line-height: .7;
+			top:.5em;
+			left: 0;
+
+
+		}
+		&:after{
+			content: "/HR";
+			bottom: .5em;
+			right: 0;
+		}
+		&:before,
+		&:after {
+			font-size: 1.6rem;
+			padding: 0 3px;
+			position: absolute;
+		}
+	}
+	&__title{
+		font-family:bebas_neue_regular, Roboto, sans-serif ;
+		font-size: 2.4rem;
+		max-height: 1.6 * 2.4rem;
+		@include ellipsis ();
+	}
+	&__features{
+		list-style-type: none;
+		padding: 0;
+		display: inline-block;
+		text-align:left;
+	}
+	&__feature{
+		padding:$offset/3 0;
+	}
+	&__btn{
+		text-transform: uppercase;
+		text-decoration: none;
+		color:#fff;
+		font-size: 1.8rem;
+		font-family:bebas_neuebold, Roboto, sans-serif ;
+		padding: 15px; 
+		background-color:$blue;
+		border:2px solid $blue;
+		width: 90%;
+		border-radius: 3.6rem;
+		display: inline-block;
+		@include posCenter();
+		transform:translate(-50%, 0);
+		@include hover {
+			color:$blue;
+			border:2px solid $blue;
+			background-color: transparent;
+
+		}
+		.card--lg & {
+			background-color: $red;
+			border:2px solid $red;
+			transform:translate(-50%, -100%);
+			@include hover {
+				color:$red;
+				border:2px solid $red;
+				background-color: #fff;
+			}
+		}
+	}
+	&--lg {
+		
+	}
+
+	&__info {
+		font-size: 1.1rem;
+		margin-top: $offset * 2;
+	}
+}
+
